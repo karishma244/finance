@@ -1,3 +1,5 @@
+
+
 import { getAccountWithTransactions } from '@/actions/account';
 import { notFound } from 'next/navigation';
 import React, { Suspense } from 'react';

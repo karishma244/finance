@@ -1,8 +1,8 @@
 "use client";
 
 import { Switch } from '@/components/ui/switch';
-import  { useEffect } from 'react';
-import { ArrowUpRight, ArrowDownRight, CreditCard } from "lucide-react";
+import React, { useEffect } from 'react';
+import { ArrowUpRight, ArrowDownRight } from "lucide-react";
 import { Card, CardFooter, CardHeader, CardContent, CardTitle } from '@/components/ui/card';
 import Link from "next/link";
 import useFetch from '@/hooks/use-fetch';

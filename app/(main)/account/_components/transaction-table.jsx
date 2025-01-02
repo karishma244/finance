@@ -7,10 +7,11 @@ import { format } from 'date-fns';
 import { categoryColors } from '@/data/categories';
 import { Badge } from '@/components/ui/badge';
 import { Tooltip,TooltipTrigger,TooltipContent,TooltipProvider } from '@/components/ui/tooltip';
-import { ChevronUp, Clock, MoreHorizontal, RefreshCcw,ChevronDown } from 'lucide-react';
+import { ChevronUp, Clock, MoreHorizontal, RefreshCcw,ChevronDown, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu,DropdownMenuContent,DropdownMenuTrigger,DropdownMenuLabel,DropdownMenuSeparator,DropdownMenuItem } from '@/components/ui/dropdown-menu';
 import { useRouter } from 'next/navigation';
+import { Input } from '@/components/ui/input';
 
 const RECURRING_INTERVALS = {
     DAILY: "Daily",
@@ -25,7 +26,9 @@ const TransactionTable = ({ transactions }) => {
         field: 'date',
         direction:"desc",
     });
-
+ const[searchTerm,setSearchTerm]=useState("");
+ const[typeFilter,settypeFilter]=useState("");
+ const[recurringFilter,setRecurringFilter]=useState("");
     
 
     const filteredAndSortedTransactions = transactions;
@@ -62,6 +65,44 @@ const TransactionTable = ({ transactions }) => {
     return (
         <div className='space-y-4'>
             {/* filters */}
+
+          <div className='flex flex-col sm:flex-row gap-4'>
+            <div className='relative flex-1'>
+                <Search className='absolute left-3 top-2.5 h-4 w-4 text-muted foreground'/>
+                <Input
+                placeholder="Search transactions..."
+                value={searchTerm}
+                onChange={(e)=>setSearchTerm(e.target.value)}                
+                className="pl-10"/>
+            </div>
+
+            <div>
+                
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             {/* transactions */}
             <div className='rounded-md border'>
 
@@ -82,7 +123,7 @@ const TransactionTable = ({ transactions }) => {
                                 onClick={() => handleSort("date")}>
                                 <div className='flex items-center'>
                                     Date
-                                    {""}
+                                    {" "}
                                     {sortConfig.field === "date" && (sortConfig.direction === "asc" ? (
                                         <ChevronUp className='ml-1 h-4 w-4'/>
                                     ) : (
