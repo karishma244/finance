@@ -50,7 +50,7 @@ import { cn } from "@/lib/utils";
 import { categoryColors } from "@/data/categories";
 import { bulkDeleteTransactions } from "@/actions/account";
 import useFetch from "@/hooks/use-fetch";
-// import { BarLoader } from "react-spinners";
+import { BarLoader } from "react-spinners";
 import { useRouter } from "next/navigation";
 
 const RECURRING_INTERVALS = {
